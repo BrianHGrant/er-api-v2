@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'emergency_response_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': project_config.AWS['NAME'],
-        'HOST': project_config.AWS['HOST'],
-        'USER': project_config.AWS['USER'],
-        'PASSWORD': project_config.AWS['PASSWORD'],
+        'NAME': os.getenv('AWS_DB_NAME'),
+        'HOST': os.getenv('AWS_DB_HOST'),
+        'USER': os.getenv('AWS_DB_USER'),
+        'PASSWORD': os.getenv('AWS_DB_PASS'),
         'PORT': 5432,
     }
 }
