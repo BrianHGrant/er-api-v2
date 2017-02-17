@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+## added os import to allow access of env variables
 import os
 import sys
 ## imports sensitive settings from file. you need to create this as instructed in README
-from . import project_config
+# from . import project_config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = project_config.DJANGO_SECRET
+SECRET_KEY = 'zcwlqvs++&nv!qc@rj+108ak)1qrp)y+_3&w_y#qqsb%w!u_ys'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,11 +85,11 @@ WSGI_APPLICATION = 'emergency_response_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': os.getenv('AWS_DB_NAME'),
-        'HOST': os.getenv('AWS_DB_HOST'),
-        'USER': os.getenv('AWS_DB_USER'),
-        'PASSWORD': os.getenv('AWS_DB_PASS'),
-        'PORT': 5432,
+        'NAME': 'fire',
+        'HOST': 'ec2-35-162-107-228.us-west-2.compute.amazonaws.com',
+        'USER': 'eruser',
+        'PASSWORD': 'ORquaileggs',
+        'PORT': 5432
     }
 }
 
